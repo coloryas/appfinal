@@ -12,7 +12,7 @@ data.columns = data.columns.str.lower()  # Convierte los nombres a minúsculas p
 if "productos_seleccionados" not in st.session_state:
     st.session_state["productos_seleccionados"] = []
 
-st.title("Explorador de Productos")
+st.title("GLOWUP LAB")
 
 # Filtros interactivos
 st.sidebar.header("Filtros")
