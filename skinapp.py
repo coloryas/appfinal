@@ -27,7 +27,7 @@ st.title("GLOWUP Lab")
 st.sidebar.header("Filtros")
 
 # Creamos un filtro para que los usuarios puedan seleccionar una marca de la lista.
-# Usamos `dropna()` para asegurarnos de que no aparezcan valores nulos, y añadimos "Todos" como opción inicial.
+# Usamos dropna() para asegurarnos de que no aparezcan valores nulos, y añadimos "Todos" como opción inicial.
 marca = st.sidebar.selectbox("Seleccionar marca", options=["Todos"] + data["marca"].dropna().unique().tolist())
 
 # Creamos un filtro para el tipo de piel. Esto permite a los usuarios buscar productos adecuados para sus necesidades.
@@ -35,18 +35,6 @@ tipo_piel = st.sidebar.selectbox("Seleccionar tipo de piel", options=["Todos"] +
 
 # Aquí añadimos un filtro para seleccionar el momento de aplicación del producto: día, noche o ambos.
 aplicacion = st.sidebar.selectbox("Seleccionar aplicación", options=["Todos"] + data["aplicación"].dropna().unique().tolist())
-
-# Creamos un filtro para seleccionar si el producto es vegano.
-# Añadimos "Todos" como opción inicial para mostrar todos los productos independientemente de esta característica.
-vegano = st.sidebar.selectbox("Seleccionar opción vegana", options=["Todos"] + data["vegano"].dropna().unique().tolist())
-
-# Creamos un filtro para seleccionar si el producto es libre de crueldad.
-# También usamos "Todos" como opción inicial para incluir todos los productos.
-libre_crueldad = st.sidebar.selectbox("Seleccionar opción libre de crueldad", options=["Todos"] + data["libre de crueldad"].dropna().unique().tolist())
-
-# Añadimos un filtro para la textura del producto.
-# Esto permite a los usuarios buscar productos según sus preferencias sensoriales.
-textura = st.sidebar.selectbox("Seleccionar textura", options=["Todos"] + data["textura"].dropna().unique().tolist())
 
 
 # Usamos un deslizador para que los usuarios puedan filtrar productos dentro de un rango de precios.
