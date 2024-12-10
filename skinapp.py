@@ -43,7 +43,7 @@ rango_precio = st.sidebar.slider(
     "Seleccionar rango de precio", 
     min_value=0, 
     max_value=int(data["precio"].str.extract(r'(\d+)', expand=False).astype(float).max()), 
-    value=(0, 1000)  # Valor inicial del deslizador.
+    value=(0, 3000)  # Valor inicial del deslizador.
 )
 
 # En esta sección, filtramos los productos según los criterios seleccionados por el usuario.
