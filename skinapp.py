@@ -75,17 +75,21 @@ st.header("Productos filtrados")
 if not productos_filtrados.empty:  # Verificamos si hay productos para mostrar.
     for index, row in productos_filtrados.iterrows():  # Iteramos sobre cada producto filtrado.
         # Aquí mostramos información detallada de cada producto.
-        st.subheader(row["nombre del producto"])
-        st.write(f"**Marca:** {row['marca']}")
-        st.write(f"**Producto:** {row['producto']}")
-        st.write(f"**Precio:** {row['precio']}")
-        st.write(f"**Tipo de piel:** {row['tipo de piel']}")
-        st.write(f"**Aplicación:** {row['aplicación']}")
-        st.write(f"**Efecto a largo plazo:** {row['efecto a largo plazo']}")
+        st.subheader(row["nombre del producto"])  # Nombre del producto como encabezado.
+        st.write(f"**Marca:** {row['marca']}")  # Mostramos la marca.
+        st.write(f"**Producto:** {row['producto']}")  # Tipo de producto, por ejemplo: limpiador, serum.
+        st.write(f"**Precio:** {row['precio']}")  # Mostramos el precio del producto.
+        st.write(f"**Tipo de piel:** {row['tipo de piel']}")  # Compatibilidad con el tipo de piel.
+        st.write(f"**Aplicación:** {row['aplicación']}")  # Momento del día recomendado para usarlo.
+        st.write(f"**Cantidad:** {row['contenido']}")  # Cantidad del producto (por ejemplo: 200 ml).
+        st.write(f"**Textura:** {row['textura']}")  # Textura del producto (ligera, media, pesada).
+        st.write(f"**Vegano:** {row['vegano']}")  # Indicamos si el producto es vegano.
+        st.write(f"**Libre de crueldad:** {row['libre de crueldad']}")  # Indicamos si el producto es libre de crueldad animal.
+        st.write(f"**Efecto a largo plazo:** {row['efecto a largo plazo']}")  # Resultados esperados.
         st.write(f"[Comprar aquí]({row['enlaces']})")  # Agregamos un enlace para comprar el producto.
 
-        # Mostramos la imagen del producto si el archivo existe en la carpeta 'fotoscremas'.
-        # Verificamos que la columna 'fotos' contiene el nombre de la imagen.
+        # Mostramos la imagen del producto si desde la carpeta 'fotoscremas'.
+        # Verificamos que la columna 'fotos' contenga el nombre de la imagen.
         if not pd.isna(row["fotos"]):  # Nos aseguramos de que la columna 'fotos' no esté vacía.
             image_path = os.path.join("fotoscremas", row["fotos"])  # Construimos la ruta completa de la imagen.
             if os.path.isfile(image_path):  # Verificamos si la imagen existe en la carpeta.
