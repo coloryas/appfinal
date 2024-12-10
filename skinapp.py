@@ -80,7 +80,7 @@ if not productos_filtrados.empty:  # Verificamos si hay productos para mostrar.
         st.write(f"**Producto:** {row['producto']}")  # Tipo de producto, por ejemplo: limpiador, serum.
         st.write(f"**Precio:** {row['precio']}")  # Mostramos el precio del producto.
         st.write(f"**Tipo de piel:** {row['tipo de piel']}")  # Compatibilidad con el tipo de piel.
-        st.write(f"**aplicacion:** {row['aplicacion']}")  # Momento del día recomendado para usarlo.
+        st.write(f"**Aplicacion:** {row['aplicacion']}")  # Momento del día recomendado para usarlo.
         st.write(f"**Cantidad:** {row['contenido']}")  # Cantidad del producto (por ejemplo: 200 ml).
         st.write(f"**Textura:** {row['textura']}")  # Textura del producto (ligera, media, pesada).
         st.write(f"**Vegano:** {row['vegano']}")  # Indicamos si el producto es vegano.
