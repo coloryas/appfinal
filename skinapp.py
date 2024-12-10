@@ -20,7 +20,7 @@ data.columns = data.columns.str.lower()
 if "productos_seleccionados" not in st.session_state:
     st.session_state["productos_seleccionados"] = []
 
-# En esta línea, agregamos un título principal a la aplicación para que el usuario sepa de qué trata.
+# En esta línea, agregamos un título principal a la aplicacion para que el usuario sepa de qué trata.
 st.title("GLOWUP Lab")
 
 # En la barra lateral, colocamos encabezados y filtros para que los usuarios puedan buscar productos de forma personalizada.
@@ -33,8 +33,8 @@ marca = st.sidebar.selectbox("Seleccionar marca", options=["Todos"] + data["marc
 # Creamos un filtro para el tipo de piel. Esto permite a los usuarios buscar productos adecuados para sus necesidades.
 tipo_piel = st.sidebar.selectbox("Seleccionar tipo de piel", options=["Todos"] + data["tipo de piel"].dropna().unique().tolist())
 
-# Aquí añadimos un filtro para seleccionar el momento de aplicación del producto: día, noche o ambos.
-aplicacion = st.sidebar.selectbox("Seleccionar aplicación", options=["Todos"] + data["aplicacion"].dropna().unique().tolist())
+# Aquí añadimos un filtro para seleccionar el momento de aplicacion del producto: día, noche o ambos.
+aplicacion = st.sidebar.selectbox("Seleccionar aplicacion", options=["Todos"] + data["aplicacion"].dropna().unique().tolist())
 
 
 # Usamos un deslizador para que los usuarios puedan filtrar productos dentro de un rango de precios.
@@ -57,9 +57,9 @@ if marca != "Todos":
 if tipo_piel != "Todos":
     productos_filtrados = productos_filtrados[productos_filtrados["tipo de piel"] == tipo_piel]
 
-# Filtramos por aplicación (día, noche o ambos) según la elección del usuario.
+# Filtramos por aplicacion (día, noche o ambos) según la elección del usuario.
 if aplicacion != "Todos":
-    productos_filtrados = productos_filtrados[productos_filtrados["aplicación"] == aplicacion]
+    productos_filtrados = productos_filtrados[productos_filtrados["aplicacion"] == aplicacion]
 
 # Convertimos los valores de la columna 'precio' en numéricos para poder aplicar el filtro del rango de precios.
 productos_filtrados["precio_num"] = productos_filtrados["precio"].str.extract(r'(\d+)', expand=False).astype(float)
@@ -80,7 +80,7 @@ if not productos_filtrados.empty:  # Verificamos si hay productos para mostrar.
         st.write(f"**Producto:** {row['producto']}")  # Tipo de producto, por ejemplo: limpiador, serum.
         st.write(f"**Precio:** {row['precio']}")  # Mostramos el precio del producto.
         st.write(f"**Tipo de piel:** {row['tipo de piel']}")  # Compatibilidad con el tipo de piel.
-        st.write(f"**Aplicación:** {row['aplicación']}")  # Momento del día recomendado para usarlo.
+        st.write(f"**aplicacion:** {row['aplicacion']}")  # Momento del día recomendado para usarlo.
         st.write(f"**Cantidad:** {row['contenido']}")  # Cantidad del producto (por ejemplo: 200 ml).
         st.write(f"**Textura:** {row['textura']}")  # Textura del producto (ligera, media, pesada).
         st.write(f"**Vegano:** {row['vegano']}")  # Indicamos si el producto es vegano.
