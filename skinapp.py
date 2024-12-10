@@ -34,7 +34,7 @@ marca = st.sidebar.selectbox("Seleccionar marca", options=["Todos"] + data["marc
 tipo_piel = st.sidebar.selectbox("Seleccionar tipo de piel", options=["Todos"] + data["tipo de piel"].dropna().unique().tolist())
 
 # Aquí añadimos un filtro para seleccionar el momento de aplicación del producto: día, noche o ambos.
-aplicacion = st.sidebar.selectbox("Seleccionar aplicación", options=["Todos"] + data["aplicación"].dropna().unique().tolist())
+aplicacion = st.sidebar.selectbox("Seleccionar aplicación", options=["Todos"] + data["aplicacion"].dropna().unique().tolist())
 
 
 # Usamos un deslizador para que los usuarios puedan filtrar productos dentro de un rango de precios.
