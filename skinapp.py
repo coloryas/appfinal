@@ -1,5 +1,7 @@
 import pandas as pd
 import streamlit as st
+from PIL import Image
+import os
 
 # Aquí cargamos los datos desde un archivo CSV que contiene toda la información de los productos.
 # Nos aseguramos de que el archivo llamado 'basedatos.csv' esté en la misma carpeta que este script.
@@ -80,6 +82,13 @@ if not productos_filtrados.empty:  # Verificamos si hay productos para mostrar.
         st.write(f"**Aplicación:** {row['aplicación']}")
         st.write(f"**Efecto a largo plazo:** {row['efecto a largo plazo']}")
         st.write(f"[Comprar aquí]({row['enlaces']})")  # Agregamos un enlace para comprar el producto.
+
+        # Mostramos la imagen del producto si el archivo existe en la carpeta 'fotoscremas'.
+        # Verificamos que la columna 'fotos' contiene el nombre de la imagen.
+        if not pd.isna(row["fotos"]):  # Nos aseguramos de que la columna 'fotos' no esté vacía.
+            image_path = os.path.join("fotoscremas", row["fotos"])  # Construimos la ruta completa de la imagen.
+            if os.path.isfile(image_path):  # Verificamos si la imagen existe en la carpeta.
+                st.image(image_path, caption=row["nombre del producto"], use_column_width=True)  # Mostramos la imagen.
 
         # Añadimos un botón para que el usuario pueda seleccionar este producto para comparar.
         if st.button(f"Seleccionar {row['nombre del producto']} para comparar", key=f"select_{index}"):
